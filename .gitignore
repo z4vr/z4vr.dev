@@ -43,3 +43,6 @@ pnpm-debug.log*
 
 # Go workspace file
 go.work
+
+# Compiled website
+website

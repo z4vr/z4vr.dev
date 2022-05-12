@@ -1,20 +1,24 @@
 package main
 
 import (
-	"os"
-
+	"github.com/z4vr/z4vr.dev/internal/config"
 	"github.com/z4vr/z4vr.dev/internal/routes"
 )
 
-const defaultPort string = "3000"
+var (
+	cfgProvider = config.NewConfitaProvider()
+)
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = defaultPort
-	}
+
+	cfg := getCfg()
 
 	r := routes.SetupRoutes()
 
-	r.Run(":" + port)
+	r.Run(":" + cfg.Port)
+}
+
+func getCfg() *config.Config {
+	cfgProvider.Load()
+	return cfgProvider.Instance()
 }

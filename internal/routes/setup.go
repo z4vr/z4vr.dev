@@ -11,5 +11,8 @@ func SetupRoutes() *gin.Engine {
 
 	r.Use(static.Serve("/", static.LocalFile("./website", true)))
 
+	r.Static("/css", "public/css")
+	r.Static("/js", "public/js")
+
 	return r
 }
