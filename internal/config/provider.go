@@ -1,9 +1,10 @@
 package config
 
 var defaultConfig = Config{
-	Port:     "8000",
-	CertFile: "",
-	KeyFile:  "",
+	Port:      "8000",
+	CertFile:  "",
+	KeyFile:   "",
+	StaticDir: "",
 }
 
 type Provider interface {

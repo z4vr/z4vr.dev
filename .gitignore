@@ -44,6 +44,9 @@ pnpm-debug.log*
 # Go workspace file
 go.work
 
+# bin dir
+bin/
+
 # Compiled website
-website
+dist
 config.yaml

@@ -20,6 +20,19 @@ func NewFiberProvider(ctn di.Container) *Provider {
 
 	prov.App.Static("/", cfg.Instance().StaticDir)
 
+	// register the api group
+	apiGroup := prov.App.Group("/api", func(c *fiber.Ctx) error {
+		return c.Status(fiber.StatusOK).JSON(map[string]interface{}{
+			"message": "Your request was processed successfully, but nothing is here.",
+		})
+	})
+
+	// register the api routes
+	apiGroup.Get("/gear", func(c *fiber.Ctx) error {
+		// return the gear list
+		return c.Status(fiber.StatusOK).JSON(nil)
+	})
+
 	return prov
 
 }
