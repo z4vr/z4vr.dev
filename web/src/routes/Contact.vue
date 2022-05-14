@@ -14,28 +14,6 @@
         </a>
       </div>
     </b-container>
-    <b-container class="mt-5 tfont">
-      <table class="mx-auto">
-        <tr>
-          <td>Mail</td>
-          <td>
-            <a href="mailto:contact@z4vr.dev">contact[a]z4vr.dev</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Discord</td>
-          <td>
-            <a href="https://discord.com/invite/SkNGupuDq7">z4vr#1337</a>
-          </td>
-        </tr>
-        <tr>
-          <td>Twitter</td>
-          <td>
-            <a href="https://twitter.com/z4vr1337">@z4vr1337</a>
-          </td>
-        </tr>
-      </table>
-    </b-container>
     <div class="built-with-banner text-center">
       <div class="hr"></div>
       <h3 class="mt-5">This page is built with</h3>
@@ -68,7 +46,7 @@ export default {
       socialLinks: [
         {
           img: logoDiscord,
-          link: 'https://discord.com/invite/SkNGupuDq7',
+          link: 'https://discord.com/users/974794021081841747',
         },
         {
           img: logoTwitter,
@@ -107,20 +85,6 @@ td {
 }
 .tfont {
   font-size: 20px;
-}
-.imprint-btn {
-  background-color: var(--c-bg-sec);
-  padding: 15px 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
-  text-decoration: none;
-  border: 3px solid var(--c-highlight);
-  color: white;
-  transition: all 0.25s ease-in-out;
-}
-.imprint-btn:hover {
-  background-color: var(--c-highlight);
-  border: 6px solid #f20e0e;
 }
 .built-with-banner {
   margin-top: 100px;

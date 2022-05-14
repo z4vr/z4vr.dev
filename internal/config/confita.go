@@ -10,18 +10,20 @@ import (
 )
 
 type ConfitaProvider struct {
+	loc string
 	*baseProvider
 }
 
-func NewConfitaProvider() *ConfitaProvider {
+func NewConfitaProvider(loc string) *ConfitaProvider {
 	return &ConfitaProvider{
+		loc:          loc,
 		baseProvider: newBaseProvider(),
 	}
 }
 
 func (p *ConfitaProvider) Load() error {
 	return confita.NewLoader(
-		file.NewOptionalBackend("./config.yaml"),
+		file.NewOptionalBackend(p.loc),
 		env.NewBackend(),
 		flags.NewBackend(),
 	).Load(context.Background(), p.instance)

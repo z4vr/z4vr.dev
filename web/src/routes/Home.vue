@@ -21,13 +21,22 @@
     <b-container id="about" class="content mt-6">
       <h1 class="page-header">about me</h1>
       <p class="mt-5">
-        hi, my name is michael, i am also known as z4vr.
-        <br>
-        i am a {{ calculateAge(new Date('2001-06-28')) }} years old computer science student at the university of technology in vienna.
-        most of the time i spend my time coding, but i also love to play games, both casually and competitively.
-
-        currently i am working on a project called <a href="https://github.com/z4vr/subayai">subayai</a>, a discord bot that offers many different functions. i also worked on 
+        Hi! I'm Michael! 👋
+      <br>
+        I'm a {{ calculateAge(new Date('2001-06-28')) }} years old programmer and currently a student at the Technische Universität Wien.
+        I love playing with operating systems, creating useless applications and trying different methods to mess up things. Most of the time I code in Golang, Python or when it's needed Java.
+      <br>
+      <br>
+        Currently I am working on <a href="https://github.com/z4vr/subayai">Subayai</a>, a discord bot that offers leveling, automanaging of roles and many more features. In addition I am working
+        on this website! You can find the source code for it and all related things <a href="https://github.com/z4vr/z4vr.dev">here</a>.
+      <br>
+      <br>
+        Since I am hosting most of my stuff myself, I have a lot of experience with Linux in general and currently I am getting into Docker and other containerization technologies.
+        To expand my knowledge I am currently learning about web development (as you can see it's going well, or else you could not read that website).
       </p>
+    </b-container>
+    <b-container id="gear" class="content mt-6">
+      
     </b-container>
     <Footer />
   </div>

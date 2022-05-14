@@ -1,24 +1,58 @@
 package main
 
 import (
+	"flag"
+	"os"
+	"os/signal"
+	"syscall"
+
+	"github.com/sarulabs/di"
 	"github.com/z4vr/z4vr.dev/internal/config"
-	"github.com/z4vr/z4vr.dev/internal/routes"
+	"github.com/z4vr/z4vr.dev/internal/webserver"
 )
 
 var (
-	cfgProvider = config.NewConfitaProvider()
+	flagConfigPath = flag.String("config", "./config.yaml", "Path to config file")
 )
 
 func main() {
 
-	cfg := getCfg()
+	diBuilder, err := di.NewBuilder()
+	if err != nil {
+		panic(err)
+	}
 
-	r := routes.SetupRoutes()
+	diBuilder.Add(di.Def{
+		Name: "config",
+		Build: func(ctn di.Container) (interface{}, error) {
+			p := config.NewConfitaProvider(*flagConfigPath)
+			return p, p.Load()
+		},
+	})
 
-	r.Run(":" + cfg.Port)
+	diBuilder.Add(di.Def{
+		Name: "webserver",
+		Build: func(ctn di.Container) (interface{}, error) {
+			return webserver.NewFiberProvider(ctn), nil
+		},
+	})
+
+	ctn := diBuilder.Build()
+	//cfg := ctn.Get("config").(config.Provider)
+	webserver := ctn.Get("webserver").(*webserver.Provider)
+	webserver.App.Listen("8080")
+
+	block()
+
+	err = ctn.DeleteWithSubContainers()
+	if err != nil {
+		return
+	}
+
 }
 
-func getCfg() *config.Config {
-	cfgProvider.Load()
-	return cfgProvider.Instance()
+func block() {
+	sc := make(chan os.Signal, 1)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
+	<-sc
 }
