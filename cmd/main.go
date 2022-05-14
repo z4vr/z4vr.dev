@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -38,9 +40,12 @@ func main() {
 	})
 
 	ctn := diBuilder.Build()
-	//cfg := ctn.Get("config").(config.Provider)
+	cfg := ctn.Get("config").(config.Provider)
 	webserver := ctn.Get("webserver").(*webserver.Provider)
-	webserver.App.Listen("8080")
+	err = webserver.App.Listen(fmt.Sprintf(":%s", cfg.Instance().Port))
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	block()
 
