@@ -1,7 +1,6 @@
 /** @format */
 
 import Router from 'vue-router';
-import Main from '../routes/Main';
 
 export default new Router({
   mode: 'history',
@@ -9,8 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'func main()',
-      component: Main,
+      name: 'home',
+      component: () => import('../routes/Home'),
     },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../routes/Contact'),
+    }
   ],
 });

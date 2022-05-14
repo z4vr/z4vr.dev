@@ -13,13 +13,18 @@
 import './css/consts.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
+import Header from './components/Header';
 import Router from './js/router';
 
 export default {
   name: 'app',
 
   router: Router,
+
+  components: {
+    Header,
+  },
+
 };
 </script>
 

@@ -39,7 +39,7 @@
 import { RouterEventBus } from '../js/router-eventbus';
 
 export default {
-  name: 'Main',
+  name: 'Home',
 
   props: {
     msg: String,
@@ -117,14 +117,6 @@ a {
 
 .mt-6 {
   margin-top: 100px;
-}
-
-.yt-iframe > iframe {
-  max-width: 100%;
-  width: 900px;
-  height: 510px;
-  border: 0;
-  margin: 0px auto;
 }
 
 @media screen and (max-height: 750px), screen and (max-width: 690px) {
