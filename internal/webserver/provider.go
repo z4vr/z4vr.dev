@@ -2,8 +2,8 @@ package webserver
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/sarulabs/di"
-	"github.com/z4vr/z4vr.dev/internal/config"
 )
 
 type Provider struct {
@@ -12,13 +12,17 @@ type Provider struct {
 
 func NewFiberProvider(ctn di.Container) *Provider {
 
-	cfg := ctn.Get("config").(config.Provider)
+	//cfg := ctn.Get("config").(config.Provider)
 
 	prov := &Provider{
 		App: fiber.New(),
 	}
 
-	prov.App.Static("/", cfg.Instance().StaticDir)
+	prov.App.Use(favicon.New(favicon.Config{
+		File: "./dist/favicon.ico",
+	}))
+
+	prov.App.Static("/", "./dist")
 
 	// register the api group
 	apiGroup := prov.App.Group("/api", func(c *fiber.Ctx) error {

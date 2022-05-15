@@ -4,9 +4,7 @@ import (
 	"context"
 
 	"github.com/heetch/confita"
-	"github.com/heetch/confita/backend/env"
 	"github.com/heetch/confita/backend/file"
-	"github.com/heetch/confita/backend/flags"
 )
 
 type ConfitaProvider struct {
@@ -24,7 +22,5 @@ func NewConfitaProvider(loc string) *ConfitaProvider {
 func (p *ConfitaProvider) Load() error {
 	return confita.NewLoader(
 		file.NewOptionalBackend(p.loc),
-		env.NewBackend(),
-		flags.NewBackend(),
 	).Load(context.Background(), p.instance)
 }

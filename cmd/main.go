@@ -42,7 +42,9 @@ func main() {
 	ctn := diBuilder.Build()
 	cfg := ctn.Get("config").(config.Provider)
 	webserver := ctn.Get("webserver").(*webserver.Provider)
-	err = webserver.App.Listen(fmt.Sprintf(":%s", cfg.Instance().Port))
+	err = webserver.App.ListenTLS(
+		fmt.Sprintf(":%s", cfg.Instance().Port),
+		cfg.Instance().CertFile, cfg.Instance().KeyFile)
 	if err != nil {
 		log.Fatal(err)
 	}

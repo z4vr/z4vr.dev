@@ -2,9 +2,9 @@ package config
 
 var defaultConfig = Config{
 	Port:      "8000",
-	CertFile:  "",
-	KeyFile:   "",
-	StaticDir: "",
+	CertFile:  "/etc/ssl/certs/cert.pem",
+	KeyFile:   "/etc/ssl/certs/key.pem",
+	StaticDir: "./dist",
 }
 
 type Provider interface {
