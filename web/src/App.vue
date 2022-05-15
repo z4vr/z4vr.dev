@@ -32,7 +32,7 @@ export default {
 /** @format */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira Sans:200,300,400&display=swap');
 
 body::-webkit-scrollbar {
   width: 15px;
@@ -76,7 +76,7 @@ a:hover {
 h1,
 h2,
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
 }
 
@@ -85,12 +85,12 @@ h3 {
 }
 
 .font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .page-header {
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
 }
 </style>

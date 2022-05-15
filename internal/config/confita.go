@@ -4,23 +4,26 @@ import (
 	"context"
 
 	"github.com/heetch/confita"
+	"github.com/heetch/confita/backend/env"
 	"github.com/heetch/confita/backend/file"
+	"github.com/heetch/confita/backend/flags"
 )
 
 type ConfitaProvider struct {
-	loc string
 	*baseProvider
 }
 
-func NewConfitaProvider(loc string) *ConfitaProvider {
+func NewConfitaProvider() *ConfitaProvider {
 	return &ConfitaProvider{
-		loc:          loc,
 		baseProvider: newBaseProvider(),
 	}
 }
 
 func (p *ConfitaProvider) Load() error {
 	return confita.NewLoader(
-		file.NewOptionalBackend(p.loc),
+		file.NewOptionalBackend("./config.json"),
+		file.NewOptionalBackend("./config.yml"),
+		env.NewBackend(),
+		flags.NewBackend(),
 	).Load(context.Background(), p.instance)
 }

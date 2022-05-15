@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira Sans:200&display=swap');
 
 .ns-container {
     position: fixed;
@@ -18,7 +18,7 @@
 }
 
 .ns-container h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     font-weight: 200;
 }
 

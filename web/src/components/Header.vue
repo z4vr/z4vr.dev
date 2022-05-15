@@ -6,8 +6,9 @@
         src="../assets/logo-1000x1000.png"
         width="40"
         height="40"
-        class="header-img mr-5 my-auto"
+        class="header-img mr-3 my-auto"
       />
+      <h4 class="header-title mr-3 my-auto">z4vr.dev</h4>
       <button
         v-for="btn in btns"
         class="header-btn"
@@ -76,6 +77,13 @@ export default {
           active: true,
         },
         {
+          name: 'projects',
+          title: 'projects',
+          window_title: 'z4vr.dev | projects',
+          route: '/projects',
+          active: true,
+        },
+        {
           name: 'contact',
           title: 'contact',
           window_title: 'z4vr.dev | contact',
@@ -136,7 +144,7 @@ export default {
   z-index: 5;
   color: white !important;
   background-color: var(--c-bg-header-o);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .header-btn {
@@ -146,7 +154,7 @@ export default {
   height: 100%;
   background-color: #00000000;
   z-index: 1;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   color: white;
   transition: all 0.25s ease;
 }

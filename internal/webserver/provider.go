@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/sarulabs/di"
+	"github.com/z4vr/z4vr.dev/internal/config"
 )
 
 type Provider struct {
@@ -12,30 +13,19 @@ type Provider struct {
 
 func NewFiberProvider(ctn di.Container) *Provider {
 
-	//cfg := ctn.Get("config").(config.Provider)
+	cfg := ctn.Get("config").(config.Provider)
 
 	prov := &Provider{
-		App: fiber.New(),
+		App: fiber.New(fiber.Config{
+			AppName: "z4vr.dev",
+		}),
 	}
 
 	prov.App.Use(favicon.New(favicon.Config{
-		File: "./dist/favicon.ico",
+		File: cfg.Instance().Fiber.StaticDir + "/favicon.ico",
 	}))
 
-	prov.App.Static("/", "./dist")
-
-	// register the api group
-	apiGroup := prov.App.Group("/api", func(c *fiber.Ctx) error {
-		return c.Status(fiber.StatusOK).JSON(map[string]interface{}{
-			"message": "Your request was processed successfully, but nothing is here.",
-		})
-	})
-
-	// register the api routes
-	apiGroup.Get("/gear", func(c *fiber.Ctx) error {
-		// return the gear list
-		return c.Status(fiber.StatusOK).JSON(nil)
-	})
+	prov.App.Static("/", cfg.Instance().Fiber.StaticDir)
 
 	return prov
 

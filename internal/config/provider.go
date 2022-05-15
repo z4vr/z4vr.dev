@@ -1,10 +1,13 @@
 package config
 
 var defaultConfig = Config{
-	Port:      "8000",
-	CertFile:  "/etc/ssl/certs/cert.pem",
-	KeyFile:   "/etc/ssl/certs/key.pem",
-	StaticDir: "./dist",
+	Fiber: Fiber{
+		Address:   "127.0.0.1",
+		Port:      "8080",
+		CertFile:  "public.cert",
+		KeyFile:   "private.key",
+		StaticDir: "./dist",
+	},
 }
 
 type Provider interface {
