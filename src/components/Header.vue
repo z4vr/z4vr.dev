@@ -47,7 +47,7 @@
 
 import BurgerButton from '../components/BurgerButton';
 import { RouterEventBus } from '../js/router-eventbus';
-import { setTimeout } from 'timers';
+import { setTimeout } from 'timers-browserify';
 
 export default {
   name: 'Header',
