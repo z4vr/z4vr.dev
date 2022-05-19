@@ -32,7 +32,7 @@ export default {
 /** @format */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Fira Sans:200,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;400;600&display=swap');
 
 body::-webkit-scrollbar {
   width: 15px;
@@ -84,7 +84,7 @@ h3 {
   margin-bottom: 200px;
 }
 
-.font-montserrat {
+.font-firasans {
   font-family: 'Fira Sans', sans-serif;
 }
 

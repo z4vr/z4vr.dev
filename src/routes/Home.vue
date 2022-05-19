@@ -3,9 +3,9 @@
     <div class="main-header">
       <b-container fluid class="header-cont">
         <div class="logo mx-auto text-center">
-          <img width="300" height="300" src="../assets/logo-1000x1000.png" />
-          <h1 class="font-montserrat">z4vr.dev</h1>
-          <h2 class="font-montserrat">welcome to my page</h2>
+          <img width="300" height="300" src="../assets/logo-1000x1000.png"/>
+          <h1 class="mt-6">Hi! I am Michael 👋</h1>
+          <h2>Scroll down to learn more about me!</h2>
           <button class="down" @click="scrollTo('#scroll-about')">
             <div style="top: -20px;">
               <img width="80" src="../assets/down-vec.svg" />
@@ -20,8 +20,7 @@
     <a id="scroll-about"></a>
     <b-container id="about" class="content mt-6">
       <h1 class="page-header">about me</h1>
-      <p class="mt-5">
-        Hi! I'm Michael! 👋
+      <p class="mt-5 font-firasans">
       <br>
         I'm a {{ calculateAge(new Date('2001-06-28')) }} years old programmer and currently a student at the Technische Universität Wien.
         I love playing with operating systems, creating useless applications and trying different methods to mess up things. Most of the time I code in Golang, Python or when it's needed Java.
@@ -36,9 +35,11 @@
       </p>
     </b-container>
     <b-container id="gear" class="content mt-6">
-      
+      <!-- 
+        TODO: add a list of my gear, like software, hardware and other stuff
+      -->
+      <h1 class="page-header">gear</h1>
     </b-container>
-    <Footer />
   </div>
 </template>
 
@@ -103,12 +104,12 @@ a {
 }
 
 .logo > h1 {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 80px;
 }
 
 .logo > h2 {
-  font-weight: 200;
+  font-weight: 100;
   font-size: 27px;
 }
 
