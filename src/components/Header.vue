@@ -70,22 +70,15 @@ export default {
       },
       btns: [
         {
-          name: 'home',
-          title: 'home',
+          name: 'HOME',
+          title: 'HOME',
           window_title: 'z4vr.dev | home',
           route: '/',
           active: true,
         },
         {
-          name: 'projects',
-          title: 'projects',
-          window_title: 'z4vr.dev | projects',
-          route: '/projects',
-          active: true,
-        },
-        {
-          name: 'contact',
-          title: 'contact',
+          name: 'CONTACT',
+          title: 'CONTACT',
           window_title: 'z4vr.dev | contact',
           route: '/contact',
           active: true,
@@ -155,6 +148,7 @@ export default {
   background-color: #00000000;
   z-index: 1;
   font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
   color: white;
   transition: all 0.25s ease;
 }

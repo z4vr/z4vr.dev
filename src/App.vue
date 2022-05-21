@@ -32,7 +32,7 @@ export default {
 /** @format */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;600&display=swap');
 
 body::-webkit-scrollbar {
   width: 15px;
@@ -90,7 +90,7 @@ h3 {
 
 .page-header {
   text-align: center;
-  font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
 }
+
 </style>
