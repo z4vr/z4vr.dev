@@ -42,7 +42,7 @@
     </b-container>
     <b-container id="gear" class="content mt-6">
       <h1 class="chapter-header mb-5">MY GEAR</h1>
-      <b-row v-for="(row, i) in rows" :key="`row-${i}`" class="data-row">
+      <b-row v-for="(row, i) in gear_rows" :key="`row-${i}`" class="data-row">
         <b-col v-for="col in row" :key="col.title">
           <h2 class="mb-3">{{ col.title }}</h2>
           <ul>
@@ -84,7 +84,7 @@ export default {
   },
 
   created() {
-    this.rows = [
+    this.gear_rows = [
       [
         {
           title: 'PC Hardware',
