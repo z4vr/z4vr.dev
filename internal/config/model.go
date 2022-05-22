@@ -1,13 +1,12 @@
 package config
 
 var DefaultConfig = Config{
-	Address:     "127.0.0.1",
-	Port:        "8080",
-	StaticDir:   "dist",
-	IndexFile:   "index.html",
-	RoutingMode: "regex",
-	KeyFile:     "",
-	CertFile:    "",
+	Address:   "127.0.0.1",
+	Port:      "8080",
+	StaticDir: "dist",
+	IndexFile: "index.html",
+	KeyFile:   "",
+	CertFile:  "",
 }
 
 type Config struct {
@@ -16,8 +15,6 @@ type Config struct {
 
 	StaticDir string
 	IndexFile string
-
-	RoutingMode string
 
 	KeyFile  string
 	CertFile string

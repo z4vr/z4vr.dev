@@ -1,6 +1,7 @@
 package webserver
 
 import (
+	"fmt"
 	"path"
 
 	"github.com/gofiber/fiber/v2"
@@ -41,13 +42,15 @@ func New(config *config.Config, logger logrus.FieldLogger) *Webserver {
 }
 
 func (w *Webserver) Listen() error {
-	return w.app.Listen(w.config.Port)
+	return w.app.Listen(fmt.Sprintf("%s:%s", w.config.Address, w.config.Port))
 }
 
 func (w *Webserver) ListenTLS() error {
-	return w.app.ListenTLS(w.config.Port, w.config.CertFile, w.config.KeyFile)
+	return w.app.ListenTLS(fmt.Sprintf("%s:%s", w.config.Address, w.config.Port), w.config.CertFile, w.config.KeyFile)
 }
 
 func (w *Webserver) SetupRoutes() {
-	w.app.Static("/", w.config.StaticDir)
+	w.app.Static("/", "./dist", fiber.Static{
+		Index: "index.html",
+	})
 }
