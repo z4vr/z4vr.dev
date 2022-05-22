@@ -35,6 +35,8 @@ func New(config *config.Config, logger logrus.FieldLogger) *Webserver {
 		File: path.Join(w.config.StaticDir, "favicon.ico"),
 	}))
 
+	w.app.Use(logrus.New())
+
 	w.SetupRoutes()
 
 	return w
@@ -50,7 +52,7 @@ func (w *Webserver) ListenTLS() error {
 }
 
 func (w *Webserver) SetupRoutes() {
-	w.app.Static("/", "./dist", fiber.Static{
-		Index: "index.html",
+	w.app.Static("/", w.config.StaticDir, fiber.Static{
+		Index: w.config.IndexFile,
 	})
 }
