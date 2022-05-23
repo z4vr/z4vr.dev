@@ -6,6 +6,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
+	flog "github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/sirupsen/logrus"
 
 	"github.com/z4vr/z4vr.dev/internal/config"
@@ -13,12 +14,12 @@ import (
 
 type Webserver struct {
 	config *config.Config
-	logger logrus.FieldLogger
+	logger *logrus.Logger
 
 	app *fiber.App
 }
 
-func New(config *config.Config, logger logrus.FieldLogger) *Webserver {
+func New(config *config.Config, logger *logrus.Logger) *Webserver {
 	w := &Webserver{
 		config: config,
 		logger: logger,
@@ -35,7 +36,11 @@ func New(config *config.Config, logger logrus.FieldLogger) *Webserver {
 		File: path.Join(w.config.StaticDir, "favicon.ico"),
 	}))
 
-	w.app.Use(logrus.New())
+	w.app.Use(flog.New(flog.Config{
+		Format:     "[${time}] ${pid} ${status} - ${method} ${path}\n",
+		TimeFormat: "2006-01-02 15:04:05",
+		TimeZone:   "Europe/Vienna",
+	}))
 
 	w.SetupRoutes()
 

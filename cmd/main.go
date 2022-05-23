@@ -25,8 +25,19 @@ func main() {
 		logrus.WithError(err).Panic("Error loading config")
 	}
 
+	log := logrus.Logger{
+		Out: os.Stdout,
+		Formatter: &logrus.TextFormatter{
+			FullTimestamp:   true,
+			ForceColors:     true,
+			TimestampFormat: "2006-01-02 15:04:05",
+		},
+		Hooks: make(logrus.LevelHooks),
+		Level: logrus.InfoLevel,
+	}
+
 	// Create a new webserver
-	w := webserver.New(&cfg, logrus.StandardLogger())
+	w := webserver.New(&cfg, &log)
 	if w == nil {
 		logrus.Panic("Error creating webserver")
 	}
